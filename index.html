@@ -16,40 +16,33 @@
         url('https://via.placeholder.com/1920x1080?text=Shrivells+Battlefield') no-repeat center center fixed;
       background-size: cover;
     }
-
     .gradient-text {
       background: linear-gradient(45deg, #ed8936, #f6e05e);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
-
     .news-card {
       background: rgba(30, 30, 30, 0.85);
       border-left: 5px solid #ed8936;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
       transition: transform 0.3s, box-shadow 0.3s;
     }
-
     .news-card:hover {
       transform: translateY(-4px) scale(1.02);
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
     }
-
     .scroll-container {
       max-height: 400px;
       overflow-y: auto;
     }
-
     .scroll-container::-webkit-scrollbar {
       width: 6px;
     }
-
     .scroll-container::-webkit-scrollbar-thumb {
       background-color: #ed8936;
       border-radius: 10px;
     }
-
     .scroll-container::-webkit-scrollbar-track {
       background-color: #1a202c;
     }
@@ -67,7 +60,7 @@
   <header class="bg-gray-800 bg-opacity-90 backdrop-blur sticky top-0 z-40 p-4 shadow-lg">
     <div class="container mx-auto flex justify-between items-center">
       <div class="flex items-center">
-        <img src="https://via.placeholder.com/50?text=S" class="mr-3 rounded shadow" alt="Logo">
+        <img src="https://raw.githubusercontent.com/RishabhisGod/Shrivells/main/Logo/logo.png" class="w-12 h-12 mr-3 rounded shadow" alt="Shrivells Logo">
         <h1 class="text-3xl font-bold gradient-text">Shrivells Bulletin</h1>
       </div>
       <div class="flex items-center space-x-4">
@@ -76,13 +69,17 @@
       </div>
       <nav id="mainNav" class="hidden lg:flex space-x-6 text-lg font-medium">
         <a href="#news" class="text-yellow-400 hover:text-yellow-300">News</a>
-        <a href="#teleport" class="text-yellow-400 hover:text-yellow-300">Teleport</a>
+        <a href="#codes" class="text-yellow-400 hover:text-yellow-300">Codes</a>
+        <a href="#community" class="text-yellow-400 hover:text-yellow-300">Community</a>
+        <a href="#updates" class="text-yellow-400 hover:text-yellow-300">Updates</a>
       </nav>
     </div>
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="lg:hidden hidden flex flex-col mt-4 space-y-2 text-yellow-300 text-center">
       <a href="#news" onclick="toggleMobileMenu()">News</a>
-      <a href="#teleport" onclick="toggleMobileMenu()">Teleport</a>
+      <a href="#codes" onclick="toggleMobileMenu()">Codes</a>
+      <a href="#community" onclick="toggleMobileMenu()">Community</a>
+      <a href="#updates" onclick="toggleMobileMenu()">Updates</a>
     </div>
   </header>
 
@@ -95,43 +92,68 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 scroll-container">
         <div class="news-card p-6 rounded-xl">
           <h3 class="text-xl font-semibold">New Map: Blaze Arena</h3>
-          <p class="text-gray-300 mt-2">Released July 19, 2025, at 01:35 PM IST. Conquer the battlefield with strategic high grounds!</p>
+          <p class="text-gray-300 mt-2">Released today, July 19, 2025, at 01:35 PM IST. Conquer the new battlefield with strategic high grounds!</p>
         </div>
         <div class="news-card p-6 rounded-xl">
           <h3 class="text-xl font-semibold">Tournament Kickoff</h3>
           <p class="text-gray-300 mt-2">First Shrivells tournament starts at 3:00 PM IST today. Sign up on Discord!</p>
         </div>
+        <div class="news-card p-6 rounded-xl">
+          <h3 class="text-xl font-semibold">Weapon Balance Patch</h3>
+          <p class="text-gray-300 mt-2">Sniper rifles rebalanced. More fair fights ahead!</p>
+        </div>
+        <div class="news-card p-6 rounded-xl">
+          <h3 class="text-xl font-semibold">Fan Voting Live!</h3>
+          <p class="text-gray-300 mt-2">Vote for the next weapon to be added in the upcoming poll!</p>
+        </div>
       </div>
     </section>
 
     <!-- Teleport Section -->
-    <section id="teleport">
-      <h2 class="text-3xl font-bold mb-6 gradient-text">Teleport to Shrivells</h2>
-      <div class="news-card p-6 rounded-xl max-w-xl mx-auto flex flex-col gap-4">
-        <label for="placeId" class="text-lg font-semibold text-yellow-400">Enter Place ID or Game URL:</label>
-        <input
-          id="https://www.roblox.com/games/88024929035488/Shrivells"
-          type="text"
-          placeholder= "https://www.roblox.com/games/88024929035488/Shrivells"
-          class="p-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-orange-400"
-        />
-        <button
-          onclick="teleportToGame()"
-          class="bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-2 px-4 rounded-lg transition"
-        >
-          🚀 Teleport Now
-        </button>
-        <p class="text-sm text-gray-300">You must have Roblox installed for teleport to work.</p>
+    <section id="teleport" class="text-center">
+      <h2 class="text-3xl font-bold mb-4 gradient-text">Join the Fight</h2>
+      <a href="https://www.roblox.com/games/88024929035488/Shrivells" target="_blank" class="inline-block px-8 py-3 text-lg font-semibold bg-yellow-500 hover:bg-yellow-400 text-black rounded-full shadow-lg transition">
+        🔫 Play Shrivells Now
+      </a>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community">
+      <h2 class="text-3xl font-bold mb-6 gradient-text">Community Corner</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="news-card p-6 rounded-xl">
+          <h3 class="text-xl font-semibold">Join the Discord</h3>
+          <p class="text-gray-300 mt-2">Talk with other players in our <a href="https://discord.gg/xyz" class="text-blue-400 hover:underline">Discord server</a>.</p>
+        </div>
+        <div class="news-card p-6 rounded-xl">
+          <h3 class="text-xl font-semibold">Submit Fan Art</h3>
+          <p class="text-gray-300 mt-2">Show off your skills in #screenshots on Discord!</p>
+        </div>
       </div>
     </section>
 
+    <!-- Updates Section -->
+    <section id="updates">
+      <h2 class="text-3xl font-bold mb-6 gradient-text">Patch Notes</h2>
+      <div class="news-card p-6 rounded-xl scroll-container">
+        <h3 class="text-xl font-semibold">v1.2.3 Patch</h3>
+        <ul class="text-gray-300 mt-2 list-disc pl-5">
+          <li>Added Blaze Arena map</li>
+          <li>Balanced sniper rifles</li>
+          <li>Improved matchmaking</li>
+          <li>Minor bug fixes</li>
+        </ul>
+        <p class="text-gray-400 mt-2">Released: July 19, 2025</p>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
   <footer class="bg-gray-900 bg-opacity-90 backdrop-blur p-4 text-center">
     <p class="text-gray-400 text-sm">
-      © 2025 Shrivells. All rights reserved. | Powered by Roblox | 
-      <a href="https://discord.gg/dg8S7dvyMF" class="text-blue-400 hover:underline">Discord</a>
+      © 2025 Shrivells. All rights reserved. | 
+      Powered by Roblox | 
+      <a href="https://discord.gg/xyz" class="text-blue-400 hover:underline">Discord</a>
     </p>
   </footer>
 
@@ -140,7 +162,6 @@
     // Dark Mode Toggle
     const modeToggle = document.getElementById('modeToggle');
     const html = document.documentElement;
-
     function updateMode() {
       if (localStorage.theme === 'dark') {
         html.classList.add('dark');
@@ -148,7 +169,6 @@
         html.classList.remove('dark');
       }
     }
-
     modeToggle.onclick = () => {
       if (html.classList.contains('dark')) {
         html.classList.remove('dark');
@@ -158,7 +178,6 @@
         localStorage.theme = 'dark';
       }
     };
-
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       localStorage.theme = 'dark';
     } else {
@@ -171,33 +190,10 @@
       document.getElementById('mobileMenu').classList.toggle('hidden');
     }
 
-    // Hide loader on page load
+    // Hide Loader
     window.addEventListener('load', () => {
       document.getElementById('loader').style.display = 'none';
     });
-
-    // Roblox Teleport
-    function teleportToGame() {
-      const input = document.getElementById('placeId').value.trim();
-      let placeId = '';
-
-      if (!input) {
-        alert('Please enter a valid Place ID or Roblox game link.');
-        return;
-      }
-
-      const match = input.match(/(\d{5,})/);
-      if (match) {
-        placeId = match[1];
-      }
-
-      if (placeId) {
-        const teleportUrl = `roblox://placeID=${placeId}`;
-        window.location.href = teleportUrl;
-      } else {
-        alert('Invalid Place ID or URL.');
-      }
-    }
   </script>
 </body>
 </html>
