@@ -6,7 +6,6 @@
   <title>Shrivells Bulletin - Gun Fight Game</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Tailwind dark mode config
     tailwind.config = {
       darkMode: 'class',
     };
@@ -72,42 +71,57 @@
         <h1 class="text-3xl font-bold gradient-text">Shrivells Bulletin</h1>
       </div>
       <div class="flex items-center space-x-4">
-        <button id="modeToggle" class="text-yellow-400 hover:text-yellow-300">
-          🌓
-        </button>
+        <button id="modeToggle" class="text-yellow-400 hover:text-yellow-300">🌓</button>
         <button class="lg:hidden text-yellow-400 hover:text-yellow-300" onclick="toggleMobileMenu()">☰</button>
       </div>
       <nav id="mainNav" class="hidden lg:flex space-x-6 text-lg font-medium">
         <a href="#news" class="text-yellow-400 hover:text-yellow-300">News</a>
-        <a href="#codes" class="text-yellow-400 hover:text-yellow-300">Codes</a>
-        <a href="#community" class="text-yellow-400 hover:text-yellow-300">Community</a>
-        <a href="#updates" class="text-yellow-400 hover:text-yellow-300">Updates</a>
+        <a href="#teleport" class="text-yellow-400 hover:text-yellow-300">Teleport</a>
       </nav>
     </div>
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="lg:hidden hidden flex flex-col mt-4 space-y-2 text-yellow-300 text-center">
       <a href="#news" onclick="toggleMobileMenu()">News</a>
-      <a href="#codes" onclick="toggleMobileMenu()">Codes</a>
-      <a href="#community" onclick="toggleMobileMenu()">Community</a>
-      <a href="#updates" onclick="toggleMobileMenu()">Updates</a>
+      <a href="#teleport" onclick="toggleMobileMenu()">Teleport</a>
     </div>
   </header>
 
   <!-- Main Content -->
   <main class="container mx-auto px-6 py-20 space-y-20">
 
-    <!-- Sections go here (News, Codes, Community, Updates)... -->
-    <!-- Just paste your existing sections from previous code here, unchanged -->
-
-    <!-- Example -->
+    <!-- News Section -->
     <section id="news">
       <h2 class="text-3xl font-bold mb-6 gradient-text">Latest News</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 scroll-container">
         <div class="news-card p-6 rounded-xl">
           <h3 class="text-xl font-semibold">New Map: Blaze Arena</h3>
-          <p class="text-gray-300 mt-2">Released today, July 19, 2025, at 01:35 PM IST. Conquer the new battlefield with strategic high grounds!</p>
+          <p class="text-gray-300 mt-2">Released July 19, 2025, at 01:35 PM IST. Conquer the battlefield with strategic high grounds!</p>
         </div>
-        <!-- more cards... -->
+        <div class="news-card p-6 rounded-xl">
+          <h3 class="text-xl font-semibold">Tournament Kickoff</h3>
+          <p class="text-gray-300 mt-2">First Shrivells tournament starts at 3:00 PM IST today. Sign up on Discord!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teleport Section -->
+    <section id="teleport">
+      <h2 class="text-3xl font-bold mb-6 gradient-text">Teleport to Shrivells</h2>
+      <div class="news-card p-6 rounded-xl max-w-xl mx-auto flex flex-col gap-4">
+        <label for="placeId" class="text-lg font-semibold text-yellow-400">Enter Place ID or Game URL:</label>
+        <input
+          id="https://www.roblox.com/games/88024929035488/Shrivells"
+          type="text"
+          placeholder= "https://www.roblox.com/games/88024929035488/Shrivells"
+          class="p-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-orange-400"
+        />
+        <button
+          onclick="teleportToGame()"
+          class="bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-2 px-4 rounded-lg transition"
+        >
+          🚀 Teleport Now
+        </button>
+        <p class="text-sm text-gray-300">You must have Roblox installed for teleport to work.</p>
       </div>
     </section>
 
@@ -116,9 +130,8 @@
   <!-- Footer -->
   <footer class="bg-gray-900 bg-opacity-90 backdrop-blur p-4 text-center">
     <p class="text-gray-400 text-sm">
-      © 2025 Shrivells. All rights reserved. | 
-      Powered by Roblox | 
-      <a href="https://discord.gg/xyz" class="text-blue-400 hover:underline">Discord</a>
+      © 2025 Shrivells. All rights reserved. | Powered by Roblox | 
+      <a href="https://discord.gg/dg8S7dvyMF" class="text-blue-400 hover:underline">Discord</a>
     </p>
   </footer>
 
@@ -146,7 +159,6 @@
       }
     };
 
-    // Initial mode check
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       localStorage.theme = 'dark';
     } else {
@@ -163,6 +175,29 @@
     window.addEventListener('load', () => {
       document.getElementById('loader').style.display = 'none';
     });
+
+    // Roblox Teleport
+    function teleportToGame() {
+      const input = document.getElementById('placeId').value.trim();
+      let placeId = '';
+
+      if (!input) {
+        alert('Please enter a valid Place ID or Roblox game link.');
+        return;
+      }
+
+      const match = input.match(/(\d{5,})/);
+      if (match) {
+        placeId = match[1];
+      }
+
+      if (placeId) {
+        const teleportUrl = `roblox://placeID=${placeId}`;
+        window.location.href = teleportUrl;
+      } else {
+        alert('Invalid Place ID or URL.');
+      }
+    }
   </script>
 </body>
 </html>
